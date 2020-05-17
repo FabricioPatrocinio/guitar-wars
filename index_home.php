@@ -104,8 +104,8 @@ mysqli_close($dbc);
         </div>
 
         <p style="float: none;" ><i class="p-icon-eu"></i> Criado por Fabricio Patrocínio</p>
-        <p><i class="p-icon-admin"></i>Experimente ser admin, aprove as publicações ou remova.</p>
-        <a href="admin.php" class="link">Link pag Admin</a>
+        <p>Experimente ser admin, aprove as publicações ou remova.</p>
+        <a href="admin.php" class="link"><i class="p-icon-admin"></i>Link pag Admin</a>
     </footer>
 
     <!-- JQuery for menu only -->
