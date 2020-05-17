@@ -1,0 +1,582 @@
+@font-face {
+    font-family: guitar hero;
+    src: url("../fonts/chequered-ink_strings-theory/StringsTheory-2yYK.ttf");
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background: url('../_img/john5.jpeg') left top / 100%;
+}
+
+*{
+    font-family: Chilanka, Arial, Helvetica, sans-serif;
+}
+
+div#brinks{
+    width: 95%;
+    max-width: 400px;
+    padding: 50px 2.5%;
+    color: #ffbe76;
+    position: absolute; top: 0; left: 50%;
+    transform: translate(-50%, 0);
+    background: #333 url('../_img/happy.png') center right 20px / 24px no-repeat;
+    box-shadow: 1px 1px 3px #000;
+    transition: 3s;
+}
+
+img#logo{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: block;
+}
+
+div#music{
+    width: 30px;
+    height: auto;
+    padding: 10px;
+    position: fixed; top: 50%;
+    transform: translate(0, -50%);
+    background: #fff;
+    z-index: 99;
+}
+
+#music-img{
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+}
+
+div#music button{
+    display: block;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    margin-top: 10px;
+    height: 30px;
+}
+
+button#play{
+    cursor: pointer;
+    background: url('../_img/play-button.png') center center / 24px no-repeat;
+}
+
+button#pause{
+    cursor: pointer;
+    background: url('../_img/pause.png') center center / 24px no-repeat;
+}
+
+div#music button:hover{
+    cursor: pointer;
+    box-shadow: 1px 2px 3px #333;
+}
+
+nav#menu{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding-bottom: 10px;
+    display: block;
+    float: left;
+    position: relative;
+}
+
+#menu ul{
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu ul a{ text-decoration: none; }
+
+#menu ul a li{
+    display: inline;
+    padding: 10px 15px;
+    font-size: 10pt;
+    color: #fff;
+    text-shadow: 1px 2px 1px #666;
+    border-radius: 3px;
+    border-bottom: 3px solid rgba(0, 0, 0, .5);
+}
+
+#menu ul a li:hover{ box-shadow: 1px 2px 3px #333; }
+
+#menu ul a:nth-child(1) li{
+    float: left;
+    padding-left: 40px;
+    background: #eb4d4b url('../_img/sort-button-with-three-lines.png') left 10px center / 20px no-repeat;
+}
+
+#menu ul a:nth-child(2) li{
+    float: right;
+    padding-left: 40px;
+    background: #686de0 url('../_img/plus.png') left 10px center / 20px no-repeat;
+}
+
+div.content{
+    width: 90%;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 5%;
+    border-radius: 3px;
+    background: rgba(15, 44, 37, .8);
+}
+
+div#content-form{
+    width: 90%;
+    max-width: 450px;
+    margin: 0 auto;
+    background: rgba(15, 44, 37, .8);
+    padding: 5%;
+    border-radius: 3px;
+}
+
+div.scroll{
+    width: 100%;
+    display: block;
+    display: flex;
+	flex-wrap: nowrap;
+	overflow-x: scroll;
+}
+
+table.tab-admin{ 
+    width: 100%;
+    min-width: 670px;
+}
+
+tr.trs td{
+    width: 90%;
+    margin: 0;
+    padding: 10px 2.5%;
+    padding-bottom: 5px;
+}
+
+tr:nth-child(2n + 2){ background: rgba(0, 0, 0, .2); }
+
+tr{ border-bottom: double 1px #ccc; }
+
+tr.score-row-remove{
+    color: #ffbe76 !important;
+    background: rgba(255, 255, 255, .2);
+}
+
+tr.score-row-remove td{
+    padding: 5px 0;
+    padding-left: 15px;
+    text-align: left;
+}
+
+tr.score-row-remove td a{
+    cursor: pointer;
+    text-decoration: none;
+    color: #bd3b39;
+    text-shadow: 1px 1px 1px #000;
+}
+
+tr.score-row-remove:nth-child(2n + 2){
+    color: #fff !important;
+    background: rgba(0, 0, 0, .2);
+}
+
+td.remove{
+    background: url('../_img/delete.png') right 15px center / 20px no-repeat;
+    font-weight: bold;
+}
+
+td.remove:hover{
+    background: #ffbe76 url('../_img/delete.png') right 15px center / 20px no-repeat;
+    font-weight: bold;
+}
+
+span.score{ font-size: 2.5em; color: #eee; }
+
+span.music{ font-size: 10pt; color: #eee; }
+
+span.name{
+    display: block;
+    padding-left: 20px;
+    color: #eb4d4b;
+    font-size: 12pt;
+    text-shadow: 1px 2px 3px #000;
+    background: url('../_img/guitar-player.png') left center / 16px no-repeat;
+}
+
+span.top-name{
+    width: fit-content;
+    display: block;
+    padding: 0;
+    padding-left: 20px;
+    margin: 0 auto;
+    color: #ffbe76;
+    font-size: 12pt;
+    text-shadow: 1px 2px 3px #000;
+}
+
+span.date{
+    width: fit-content;
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    color: #000;
+    background: #eb4d4b;
+    border-radius: 3px;
+    font-size: 10pt;
+}
+
+h1{
+    width: 100%;
+    color: #ffbe76  ;
+    float: left;
+    padding: 40px 0;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 2em;
+    font-family: guitar hero;
+    letter-spacing: 3px;
+    background: url('../_img/john-5.png') left center / 200px no-repeat;
+}
+
+p{
+    width: 95%;
+    margin: 0;
+    padding: 10px 2.5%;
+    color: #fff;
+    font-size: 12pt;
+    float: left;
+}
+
+p.apres{
+    padding: 15px 0;
+    padding-left: 40px;
+    color: #fff;
+    background: url('../_img/happy.png') left 10px center / 20px no-repeat;
+}
+
+p.erro{
+    margin-bottom: 20px;
+    border-radius: 3px;
+    background: rgba(189, 59, 57, .8);
+}
+
+p.confirmacao{
+    margin-bottom: 20px;
+    border-radius: 3px;
+    background: rgb(114, 207, 111);
+}
+
+::placeholder{ color: #eee; }
+
+#presentation{ color: #eee;  text-align: center; }
+
+a{  color: #686de0; }
+
+a:hover{ color: #a7a9d1; }
+
+a.link{ 
+    display: block;
+    background: #333; 
+    font-size: 11pt;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px; 
+    text-decoration: none;
+    box-shadow: 1px 1px 3px #000;
+}
+
+a.link:hover{ box-shadow: 1px 1px 3px #666; }
+
+/* -------------- forms ------------- */
+
+form{
+    width: 80%;
+    padding: 10% 0 0 0;
+    margin: 0 auto;
+    border-radius: 3px;
+}
+
+label{ color: #fff; font-size: 11pt; }
+
+input{
+    width: 95%;
+    background: rgba(255, 255, 255, .1);
+    color: #fff;
+    font-size: 11pt;
+    border: none;
+    padding: 12px 2.5%;
+    margin: 10px 0;
+    border-radius: 3px;
+}
+
+div#file{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    overflow: hidden;
+    background: #eee;
+    position: relative;
+    border-radius: 3px;
+}
+
+input#screenshot{
+    width: 20%;
+    height: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: inline-block;
+    float: left;
+    background: #ccc url('../_img/image-gallery.png') left 10px center / 24px no-repeat;
+}
+
+#file-name{
+    width: 75%;
+    height: inherit;
+    margin: 0;
+    padding: 0 2.5%;
+    border: none;
+    display: inline-block;
+    float: left;
+    line-height: 40px;
+    color: #666;
+    position: absolute; top: 0;
+}
+
+input[type=file]::-webkit-file-upload-button {
+    display: none;
+} 
+
+input[type=file]::-webkit-file-upload-button:hover {
+    color: rgb(31, 29, 29);
+    cursor: pointer;
+} 
+
+#submit{
+    width: 100%;
+    color: #fff;
+    font-weight: bolder;
+    text-shadow: 1px 2px 1px #333;
+    cursor: pointer;
+    background: #eb4d4b;
+    box-shadow: 1px 1px 1px #000;
+    border-bottom: 3px solid rgba(0, 0, 0, .5);
+}
+
+#submit:hover{  background: #bd3b39; }
+
+img.screenshot{
+    width: 100%;
+    box-shadow: 0px 2px 4px #000;
+}
+
+img.img-previus{
+    width: 100%;
+    max-width: 200px;
+    margin: 10px 0;
+    box-shadow: 0px 2px 4px #000;
+}
+
+#db-data{
+    width: 100%;
+}
+
+.score-inf{
+    width: 45%;
+    padding: 2.5%;
+    display: inline-block;
+}
+
+.row-bg:nth-child(2n + 2){ background: rgba(0, 0, 0, .2); }
+
+
+/* style pag removescore */
+
+span.font-m{
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    padding-left: 30px;
+    background: url('../_img/lixeira.png') left center / 24px no-repeat;
+}
+
+.remove-name{
+    color: #eb4d4b;
+    font-size: 13pt;
+    padding: 5px 25px;
+    display: block;
+    text-shadow: 1px 2px 3px #000;
+    background: url('../_img/guitar-player.png') left center / 16px no-repeat;
+}
+
+.remove-score{
+    color: #fff;
+    font-size: 13pt;
+    padding: 5px 0;
+    display: block;
+}
+
+.remove-date{
+    width: fit-content;
+    background: #ffbe76 ;
+    color: #666;
+    font-size: 11pt;
+    padding: 10px 15px;
+    border-radius: 3px;
+    display: block;
+}
+
+#form-remove{
+    width: 90%;
+    padding: 5%;
+    background: rgba(255, 255, 255, .2);
+    margin: 5% 0;
+    border-radius: 3px;
+}
+
+#remove-submit{
+    width: 100%;
+    font-size: 11pt;
+    padding: 10px 0;
+    font-weight: bold;
+    background: #eb4d4b url('../_img/lixeira.png') left 10px center / 22px no-repeat;
+    box-shadow: 1px 1px 1px #000;
+    text-shadow: 1px 2px 1px #000;
+    border-bottom: 3px solid rgba(0, 0, 0, .5);
+}
+
+#remove-submit:hover{
+    box-shadow: 1px 1px 1px #666;
+    cursor: pointer;
+}
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 11pt;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px #000;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #eb4d4b;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* style pag removescore */
+
+footer{
+    width: 100%;
+    padding: 50px 0;
+    float: left;
+    margin: 0;
+    margin-top: 100px;
+    text-align: center;
+    background: rgba(15, 44, 37, .8);
+}
+
+.fa{
+    width: 50px;
+}
+
+div.icons{
+    width: 100%;
+    max-width: 320px;
+    margin: 10px auto;
+    padding: 10px 0;
+    border: solid 1px #666;
+    border-radius: 3px;
+    box-sizing: border-box;
+    box-shadow: 1px 2px 3px #000;
+}
+
+.fa-facebook::before{
+    width: 50px !important;
+    height: 50px;
+     background-size: 50px !important;
+}
+
+.meng-cell{
+    display: none;
+}
+
+@media screen and (max-width: 760px){
+    .meng-cell{ display: block; }
+}
+
+@media screen and (max-width: 460px){
+    div.content, div#content-form{  
+        width: 80%;  
+        padding: 30px 10%; 
+    }
+    
+    #form-remove{ 
+        width: 80%; 
+        padding: 10%; 
+        margin: 20px 0; 
+    }    
+
+    .score-inf{ 
+        width: 90%; 
+        padding: 5%; 
+    }
+}
