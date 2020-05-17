@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
     echo '<span class="checkmark"></span>';
     echo '</label>';
 
-    echo '<input type="submit" value="Excluir" name="submit" id="remove-submit" />';
+    echo '<input type="submit" value="Excluir" name="submit" class="remove-submit submit" />';
 
     echo '<input type="hidden" name="id" value="' . $id . '" />';
     echo '<input type="hidden" name="name" value="' . $name . '" />';

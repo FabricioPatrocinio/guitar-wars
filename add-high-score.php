@@ -33,7 +33,7 @@
     <div id="content-form">
         <nav id="menu">
             <ul>
-                <a href="index_home.php"><li>Lista Recordes</li></a>
+                <a href="index.php"><li>Recordes</li></a>
                 <a href="add-high-score.php"><li>Novo Recorde</li></a>
             </ul>
         </nav>
@@ -70,7 +70,7 @@ if (isset($_POST['submit']) && isset($_FILES['screenshot']['name'])) {
                     mysqli_query($dbc, $query);
                     echo '<p class="confirmacao">Parabéns! <br> Seu recorde foi adicionado com sucesso!</p>';
 
-                    $name = ""; //limpa os valores
+                    $name = ""; // clear values
                     $score = "";
                     $music = "";
                     $screenshot = "";
@@ -85,7 +85,7 @@ if (isset($_POST['submit']) && isset($_FILES['screenshot']['name'])) {
         } else {
             echo '<p class="erro erro-yellow">O arquivo precisa ser um gráfico GIF, JPEG, ou PNG com menos de ' . (GW_MAXFILESIZE / 1024) . 'KB de tamanho. Para reduzir sua imagem acesse: <a href="https://www.easy-resize.com/pt/" target="_blank">easy-resize</a></p>';
 
-            //tenta excluir o arquivo grafico temporário
+            //try file graphic temporary
             @unlink($_FILES['screenshot']['tmp_name']);
         }
     } else {

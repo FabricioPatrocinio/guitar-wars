@@ -24,16 +24,16 @@ require_once 'authorize.php';
     <div class="content">
         <nav id="menu">
             <ul>
-                <a href="index_home.php"><li>Lista Recordes</li></a>
-                <a href="add-high-score.php"><li>Adicionar Recorde</li></a>
+                <a href="index.php"><li>Recordes</li></a>
+                <a href="add-high-score.php"><li>Novo recorde</li></a>
             </ul>
         </nav>
         <div id="brinks">
             Ou você está aqui por ser ADMIN, ou eu fui Hackeado.
         </div>
 
-        <p style="padding-left: 0 !important;">Pagina admin, para remoção de recordes.</p>
-        <p class="meng-cell" style="padding-left: 0 !important;">Deslize para direita para remover <img src="_img/right-arrow.png" style="width: 10px;"></p>
+        <p style="padding-left: 0 !important;">Pagina admin, para aprovar e remoção de recordes.</p>
+        <p class="meng-cell" style="padding-left: 0 !important;">Deslize para direita para aprovar ou remover <img src="_img/right-arrow.png" style="width: 10px;"></p>
 
         <?php
 require_once 'appvars.php';
@@ -73,6 +73,7 @@ echo '</div>';
 
 mysqli_close($dbc);
 ?>
+
     </div>
 
     <footer>

@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
         echo '<p class="erro">Desculpe, houve alguma problema para aprovar a pontuação.</p>';
     }
 } elseif (isset($id) && isset($name) && isset($date) && isset($score) && isset($screenshot)) {
-    echo '<span class="font-m">Aprovar pontuação</span><br>';
+    echo '<span class="font-m font-m-app">Aprovar pontuação</span><br>';
     echo '<span class="remove-name">' . $name . '</span>';
     echo '<span class="remove-score">' . $score . '</span>';
     echo '<span class="remove-date">Data do record - ' . $date . '</span>';
@@ -87,7 +87,7 @@ if (isset($_POST['submit'])) {
     echo '<span class="checkmark"></span>';
     echo '</label>';
 
-    echo '<input type="submit" value="Excluir" name="submit" id="remove-submit" />';
+    echo '<input type="submit" value="Aprovar" name="submit" class="approved-submit submit" />';
 
     echo '<input type="hidden" name="id" value="' . $id . '" />';
     echo '<input type="hidden" name="name" value="' . $name . '" />';

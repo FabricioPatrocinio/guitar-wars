@@ -353,9 +353,9 @@ a.link:hover {
 
 /* -------------- forms ------------- */
 form {
-    width: 80%;
+    width: 100%;
     padding: 10% 0 0 0;
-    margin: 0 auto;
+    margin: 0;
     border-radius: 3px;
 }
 
@@ -473,6 +473,10 @@ span.font-m {
     background: url('../_img/lixeira.png') left center / 24px no-repeat;
 }
 
+span.font-m-app {
+    background: url('../_img/ui.png') left center / 24px no-repeat;
+}
+
 .remove-name {
     color: #eb4d4b;
     font-size: 13pt;
@@ -507,21 +511,33 @@ span.font-m {
     border-radius: 3px;
 }
 
-#remove-submit {
+.submit{
     width: 100%;
     font-size: 11pt;
     padding: 10px 0;
     font-weight: bold;
-    background: #eb4d4b url('../_img/lixeira.png') left 10px center / 22px no-repeat;
     box-shadow: 1px 1px 1px #000;
     text-shadow: 1px 2px 1px #000;
     border-bottom: 3px solid rgba(0, 0, 0, .5);
-}
-
-#remove-submit:hover {
-    box-shadow: 1px 1px 1px #666;
     cursor: pointer;
 }
+
+.remove-submit {
+    background: #eb4d4b url('../_img/lixeira.png') left 10px center / 22px no-repeat;
+}
+
+.approved-submit {
+    background: #686de0 url('../_img/ui.png') left 10px center / 22px no-repeat;
+}
+
+.remove-submit:hover {
+    box-shadow: 1px 1px 1px #666;
+}
+
+.approved-submit:hover {
+    box-shadow: 1px 1px 1px #666;
+}
+
 
 /* The container */
 .container {
@@ -641,6 +657,11 @@ div.icons {
     div#content-form {
         width: 80%;
         padding: 30px 10%;
+    }
+    .icon-top {
+        width: 80%;
+        padding: 15px 0;
+        padding-left: 20%;
     }
 
     #form-remove {
