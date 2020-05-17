@@ -100,7 +100,7 @@ mysqli_close($dbc);
             <a href="https://www.facebook.com/fabricio.schiffer" target="_blank" class="fa fa-facebook"></a>
             <a href="https://www.instagram.com/fabricio_patrocinio_/?hl=pt-br" target="_blank" class="fa fa-instagram"></a>
             <a href="https://www.youtube.com/channel/UCZSB3-asIKR4ywZTnlvbZ3Q?view_as=subscriber" target="_blank" class="fa fa-youtube"></a>
-            <a href="https://github.com/FabricioPatrocinio" target="_blank" class="fa fa-github"></a>
+            <a href="https://github.com/FabricioPatrocinio/guitar-wars" target="_blank" class="fa fa-github"></a>
         </div>
 
         <p style="float: none;" ><i class="p-icon-eu"></i> Criado por Fabricio Patrocínio</p>
