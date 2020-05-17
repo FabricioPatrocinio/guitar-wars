@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Remove Score - Guitar Wars</title>
+    <title>Approved Score - Guitar Wars</title>
 
     <link rel="stylesheet" href="_css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Chilanka|Roboto" rel="stylesheet">
@@ -39,31 +39,30 @@ if (isset($_GET['id']) && isset($_GET['date']) && isset($_GET['name'])
     $score = $_POST['score'];
     $screenshot = $_POST['screenshot'];
 } else {
-    echo '<p class="erro">Desculpe, nenhuma pontuação foi especificada para ser removida.</p>';
+    echo '<p class="erro">Desculpe, nenhuma pontuação foi especificada para ser aprovada.</p>';
 }
 
 if (isset($_POST['submit'])) {
     if ($_POST['confirm'] == 'Yes') {
+        $name = $_POST['name'];
+        $score = $_POST['score'];
         $id = $_POST['id'];
-
-        //Exclui o arquivo grafico do servidor
-        @unlink(GW_UPLOADPATH . $screenshot);
 
         //Conect no banco de dados
         $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-        //exclui todos os dados da pontuação do banco
-        $query = "DELETE FROM guitarwars WHERE id = ('$id') LIMIT 1 ";
+        //Aprova a pontuação do banco
+        $query = "UPDATE guitarwars SET approved = 1 WHERE id = '$id'";
 
         mysqli_query($dbc, $query);
         mysqli_close($dbc);
 
-        echo '<p class="confirmacao">A pontuação foi removida com sucesso.</p>';
+        echo '<p class="confirmacao">A pontuação de ' . $score . ' para ' . $name . ' foi aprovada com sucesso!</p>';
     } else {
-        echo '<p class="erro">A pontuação não foi removida.</p>';
+        echo '<p class="erro">Desculpe, houve alguma problema para aprovar a pontuação.</p>';
     }
 } elseif (isset($id) && isset($name) && isset($date) && isset($score) && isset($screenshot)) {
-    echo '<span class="font-m">Remover pontuação</span><br>';
+    echo '<span class="font-m">Aprovar pontuação</span><br>';
     echo '<span class="remove-name">' . $name . '</span>';
     echo '<span class="remove-score">' . $score . '</span>';
     echo '<span class="remove-date">Data do record - ' . $date . '</span>';
@@ -77,7 +76,7 @@ if (isset($_POST['submit'])) {
     }
 
     //formulário
-    echo '<form method="post" action="removescore.php" id="form-remove">';
+    echo '<form method="post" action="approved-score.php" id="form-remove">';
     echo '<label class="container">Sim';
     echo '<input type="checkbox" name="confirm" value="Yes" />';
     echo '<span class="checkmark"></span>';

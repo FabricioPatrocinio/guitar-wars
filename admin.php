@@ -1,3 +1,7 @@
+<?php
+require_once 'authorize.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,8 +20,14 @@
 <body>
 
     <img src="_img/logo.png" id="logo">
-    
+
     <div class="content">
+        <nav id="menu">
+            <ul>
+                <a href="index_home.php"><li>Lista Recordes</li></a>
+                <a href="add-high-score.php"><li>Adicionar Recorde</li></a>
+            </ul>
+        </nav>
         <div id="brinks">
             Ou você está aqui por ser ADMIN, ou eu fui Hackeado.
         </div>
@@ -45,6 +55,14 @@ while ($row = mysqli_fetch_array($data)) {
     echo '<tr class="score-row-remove"><td><strong>' . $row['name'] . '</strong></td>';
     echo '<td>' . $row['date'] . '</td>';
     echo '<td>' . $row['score'] . '</td>';
+
+    // show option for not approved
+    if ($row['approved'] == 0) {
+        echo '<td class="approved"><a href="approved-score.php?id=' . $row['id'] .
+            '&amp;date=' . $row['date'] . '&amp;name=' . $row['name'] .
+            '&amp;score=' . $row['score'] . '&amp;screenshot='
+            . $row['screenshot'] . '">Aprovar</a></td>';
+    }
     echo '<td class="remove"><a href="removescore.php?id=' . $row['id'] .
         '&amp;date=' . $row['date'] . '&amp;name=' . $row['name'] .
         '&amp;score=' . $row['score'] . '&amp;screenshot='
@@ -64,7 +82,7 @@ mysqli_close($dbc);
     <script>
         setInterval(function(){
             document.querySelector('#brinks').style.top = '-100%'
-        }, 2000);
+        }, 4000);
     </script>
 </body>
 </html>

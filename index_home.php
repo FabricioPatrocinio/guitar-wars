@@ -18,8 +18,11 @@
     <title>Guitar Wars - High Score</title>
 
     <link rel="stylesheet" href="_css/style.css">
+
+    <!-- Fonts online-->
     <link href="https://fonts.googleapis.com/css?family=Chilanka|Roboto" rel="stylesheet">
 
+    <!-- Icons online-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -45,7 +48,7 @@
                 <a href="add-high-score.php"><li>Adicionar Recorde</li></a>
             </ul>
         </nav>
-        <p class="apres">Top list de recordes Guitar Hero. Adicione o seu!</p>
+        <p class="icon-top">Top list de recordes Guitar Hero. Adicione o seu! <br> Link para Admin no radapé da pagina.</p>
         <?php
 // compartiha os scripts
 require_once 'connectvars.php';
@@ -53,7 +56,7 @@ require_once 'appvars.php';
 
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-$query = "SELECT * FROM guitarwars ORDER BY score DESC, date ASC";
+$query = "SELECT * FROM guitarwars WHERE approved = 1 ORDER BY score DESC, date ASC";
 $data = mysqli_query($dbc, $query);
 
 $i = 0;
@@ -92,6 +95,7 @@ mysqli_close($dbc);
             &reg; Guitar Wars Hing Score- 2019
         </p>
 
+        <!-- Icons online and my social midia -->
         <div class="icons">
             <a href="https://www.facebook.com/fabricio.schiffer" target="_blank" class="fa fa-facebook"></a>
             <a href="https://www.instagram.com/fabricio_patrocinio_/?hl=pt-br" target="_blank" class="fa fa-instagram"></a>
@@ -99,7 +103,13 @@ mysqli_close($dbc);
             <a href="https://github.com/FabricioPatrocinio" target="_blank" class="fa fa-github"></a>
         </div>
 
-        <p style="float: none;">Criado por Fabricio Patrocínio</p>
+        <p style="float: none;" ><i class="p-icon-eu"></i> Criado por Fabricio Patrocínio</p>
+        <p><i class="p-icon-admin"></i>Experimente ser admin, aprove as publicações ou remova.</p>
+        <a href="admin.php" class="link">Link pag Admin</a>
     </footer>
+
+    <!-- JQuery for menu only -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery-menu.js"></script>
 </body>
 </html>
