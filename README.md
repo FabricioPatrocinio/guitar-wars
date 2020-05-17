@@ -1,6 +1,6 @@
 # guitar-wars
 
-*Autor - Fabrício Patrocínio
+*Autor - Fabrício Patrocínio*
 
 ###### Criado baseado no livro Usando a cabeça com PHP e MySQL
 
