@@ -11,10 +11,8 @@
     <meta property="og:title" content="Site dinamico criado usando PHP puro e MySQL">
     <meta property="og:description" content="Site criado apenas como portifólio.">
     <meta property="og:site_name" content="Guitar Wars">
-    <meta property="og:image" content="http://gamersworldrecordsandtournament.epizy.com/_img/john5.jpeg">
+    <meta property="og:image" itemprop="image" content="http://gamersworldrecordsandtournament.epizy.com/_img/john5-share.jpeg">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="800">
-    <meta property="og:image:height" content="600">
 
     <title>Guitar Wars - High Score</title>
 
