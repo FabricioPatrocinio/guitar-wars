@@ -119,6 +119,13 @@ if (isset($_POST['submit']) && isset($_FILES['screenshot']['name'])) {
     </footer>
 
     <script>
+        var $input    = document.querySelector('#screenshot'),
+            $fileName = document.querySelector('#file-name');
+
+        $input.addEventListener('change', function(){
+            $fileName.innerHTML = this.value;
+        });
+
         // Maxlegth = 7, input type number
         // https://jsfiddle.net/DRSDavidSoft/zb4ft1qq/2/
         function maxLengthCheck(object)
