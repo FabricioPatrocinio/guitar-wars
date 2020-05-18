@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 18/05/2020 às 14:49
+-- Tempo de geração: 18/05/2020 às 14:54
 -- Versão do servidor: 10.4.11-MariaDB
 -- Versão do PHP: 7.4.4
 
@@ -42,8 +42,8 @@ CREATE TABLE `guitarwars` (
 --
 
 INSERT INTO `guitarwars` (`id`, `date`, `name`, `score`, `music`, `screenshot`, `approved`) VALUES
-(19, '2020-05-18 12:40:19', 'Fabricio Patrocinio', 9232392, 'Dreamweaver - Stratovarius', '1589805502record-guitar-hero.jpg', 1),
-(21, '2020-05-18 12:40:26', 'Fabricio Patrocinio', 1209000, 'One - Metálica', '1589805601record-guitar-hero.jpg', 1);
+(22, '2020-05-18 12:52:53', 'Fabricio Patrocinio', 9289283, 'Dreamweaver - Stratovarius', '1589806348record-guitar-hero.jpg', 1),
+(23, '2020-05-18 12:52:58', 'Fabricio Patrocinio', 6562536, 'One - Metálica', '1589806362record-guitar-hero.jpg', 1);
 
 --
 -- Índices de tabelas apagadas
@@ -63,7 +63,7 @@ ALTER TABLE `guitarwars`
 -- AUTO_INCREMENT de tabela `guitarwars`
 --
 ALTER TABLE `guitarwars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
