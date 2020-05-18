@@ -225,9 +225,9 @@ span.music {
 span.name {
     display: block;
     padding-left: 20px;
-    color: #eb4d4b;
-    font-size: 12pt;
-    text-shadow: 1px 2px 3px #000;
+    color: #686de0;
+    font-size: 13pt;
+    text-shadow: 1px 2px 3px #333;
     background: url('../_img/guitar-player.png') left center / 16px no-repeat;
 }
 
@@ -439,7 +439,9 @@ input[type=file]::-webkit-file-upload-button:hover {
 img.screenshot {
     width: 100%;
     margin: 0;
-    box-shadow: 0px 2px 4px #000;
+    box-shadow: 0px 2px 10px #000;
+    border: solid 1px #000;
+    box-sizing: border-box;
 }
 
 img.img-previus {
@@ -461,6 +463,9 @@ img.img-previus {
 
 .row-bg:nth-child(2n + 2) {
     background: rgba(0, 0, 0, .2);
+    border: solid 1px #1a1a1a;
+    border-radius: 3px;
+    box-sizing: border-box;
 }
 
 /* style pag removescore */

@@ -16,18 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 </head>
 <body>
-    <audio id="demo" controls style="display: none;">
-        <source src="_music/buckethead_jordan.mp3" type="audio/mpeg">
-        <source src="_music/buckethead_jordan.mp3" type="audio/ogg">
-        Seu navegador não suporta áudio tag.
-    </audio>
-
-    <div id="music">
-        <img src="_img/music-player.png" alt="" id="music-img">
-        <button id="play" onclick="document.querySelector('#demo').play()"></button>
-        <button id="pause" onclick="document.querySelector('#demo').pause()"></button>
-    </div>
-
     <img src="_img/logo.png" alt="" id="logo">
 
     <div id="content-form">
@@ -37,7 +25,7 @@
                 <a href="add-high-score.php"><li>Novo Recorde</li></a>
             </ul>
         </nav>
-        <p class="apres">Logo logo você será Super Stars da Guitar.</p>
+        <p class="apres">Logo mais você será um Guitar God.</p>
         <?php
 date_default_timezone_set('America/Sao_Paulo');
 $date = date('Y-m-d H:i');
@@ -117,24 +105,20 @@ if (isset($_POST['submit']) && isset($_FILES['screenshot']['name'])) {
             &reg; Guitar Wars Hing Score- 2019
         </p>
 
+        <!-- Icons online and my social midia -->
         <div class="icons">
             <a href="https://www.facebook.com/fabricio.schiffer" target="_blank" class="fa fa-facebook"></a>
             <a href="https://www.instagram.com/fabricio_patrocinio_/?hl=pt-br" target="_blank" class="fa fa-instagram"></a>
             <a href="https://www.youtube.com/channel/UCZSB3-asIKR4ywZTnlvbZ3Q?view_as=subscriber" target="_blank" class="fa fa-youtube"></a>
-            <a href="https://github.com/FabricioPatrocinio" target="_blank" class="fa fa-github"></a>
+            <a href="https://github.com/FabricioPatrocinio/guitar-wars" target="_blank" class="fa fa-github"></a>
         </div>
 
-        <p style="float: none;">Criado por Fabricio Patrocínio</p>
+        <p style="float: none;" ><i class="p-icon-eu"></i> Criado por Fabricio Patrocínio</p>
+        <p>Experimente ser admin, aprove as publicações ou remova. <br> Usuário 'root', senha 'root'</p>
+        <a href="admin.php" class="link"><i class="p-icon-admin"></i>Link pag Admin</a>
     </footer>
 
     <script>
-        var $input    = document.querySelector('#screenshot'),
-            $fileName = document.querySelector('#file-name');
-
-        $input.addEventListener('change', function(){
-            $fileName.innerHTML = this.value;
-        });
-
         // Maxlegth = 7, input type number
         // https://jsfiddle.net/DRSDavidSoft/zb4ft1qq/2/
         function maxLengthCheck(object)

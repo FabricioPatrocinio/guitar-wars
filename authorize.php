@@ -1,7 +1,7 @@
 <?php
 // Name Usename / Password
 $username = 'root';
-$password = 'admin';
+$password = 'root';
 
 if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW']) || ($_SERVER['PHP_AUTH_USER'] != $username) || ($_SERVER['PHP_AUTH_PW'] != $password) ) {
     // Name User/Password so send header for authenticate

@@ -47,7 +47,7 @@
                 <a href="add-high-score.php"><li>Novo recorde</li></a>
             </ul>
         </nav>
-        <p class="icon-top">Top list de recordes Guitar Hero. Adicione o seu! <br> Link para Admin no radapé da pagina Usuario = root, senha = admin.</p>
+        <p class="icon-top">Top list de recordes Guitar Hero. Adicione o seu! <br> Link para Admin no radapé da pagina Usuario 'root', senha 'root'</p>
         <?php
 // share the scripts
 require_once 'connectvars.php';
@@ -55,8 +55,11 @@ require_once 'appvars.php';
 
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-$query = "SELECT * FROM guitarwars WHERE approved = 1 ORDER BY score DESC, date ASC";
+$query = "SELECT Year(date) as ano, MONTH(date) as mes, DAY(date) as dia, guitarwars.* FROM guitarwars WHERE approved = 1 ORDER BY score DESC, date ASC";
 $data = mysqli_query($dbc, $query);
+
+// array names months
+$mes = array(1 => "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
 
 $i = 0;
 echo '<div id="db-data">';
@@ -71,7 +74,7 @@ while ($row = mysqli_fetch_array($data)) {
     echo '<span class="score">' . $row['score'] . '</span><br>';
     echo '<span class="name">' . $row['name'] . '</span><br>';
     echo '<span class="music">' . $row['music'] . '</span><br>';
-    echo '<span class="date">Record de ' . $row['date'] . '</span><br></td>';
+    echo '<span class="date">Do dia ' . $row['dia'] . ' de ' . $mes[$row['mes']] . ' de ' . $row['ano'] . '</span><br></td>';
     echo '</div>';
     echo '<div class="score-inf">';
     if (is_file(GW_UPLOADPATH . $row['screenshot']) && filesize(GW_UPLOADPATH . $row['screenshot']) > 0) {
@@ -103,7 +106,7 @@ mysqli_close($dbc);
         </div>
 
         <p style="float: none;" ><i class="p-icon-eu"></i> Criado por Fabricio Patrocínio</p>
-        <p>Experimente ser admin, aprove as publicações ou remova. <br> Usuário 'root', senha 'admin'</p>
+        <p>Experimente ser admin, aprove as publicações ou remova. <br> Usuário 'root', senha 'root'</p>
         <a href="admin.php" class="link"><i class="p-icon-admin"></i>Link pag Admin</a>
     </footer>
 </body>
