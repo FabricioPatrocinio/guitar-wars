@@ -102,7 +102,7 @@ echo '<a href="admin.php" class="link"> &lt;&lt; Voltar a página admin</a>';
     </div>
 
     <footer>
-        <p id="copy">&reg; Guitar Wars Hing Score - 2019</p>
+        <p id="copy">&reg; Guitar Wars High Score - 2019</p>
     </footer>
 </body>
 </html>

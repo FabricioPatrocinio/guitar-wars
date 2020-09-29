@@ -102,7 +102,7 @@ if (isset($_POST['submit']) && isset($_FILES['screenshot']['name'])) {
 
     <footer>
         <p id="copy" style="float: none;">
-            &reg; Guitar Wars Hing Score- 2019
+            &reg; Guitar Wars High Score- 2019
         </p>
 
         <!-- Icons online and my social midia -->

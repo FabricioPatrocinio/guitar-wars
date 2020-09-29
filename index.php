@@ -18,10 +18,10 @@
 
     <link rel="stylesheet" href="_css/style.css">
 
-    <!-- Fonts online-->
+    <!-- Fonts online -->
     <link href="https://fonts.googleapis.com/css?family=Chilanka|Roboto" rel="stylesheet">
 
-    <!-- Icons online-->
+    <!-- Icons online -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -59,7 +59,7 @@ $query = "SELECT Year(date) as ano, MONTH(date) as mes, DAY(date) as dia, guitar
 $data = mysqli_query($dbc, $query);
 
 // array names months
-$mes = array(1 => "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+ $mes = array(1 => "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
 
 $i = 0;
 echo '<div id="db-data">';
@@ -94,7 +94,7 @@ mysqli_close($dbc);
 
     <footer>
         <p id="copy" style="float: none;">
-            &reg; Guitar Wars Hing Score- 2019
+            &reg; Guitar Wars High Score- 2019
         </p>
 
         <!-- Icons online and my social midia -->
@@ -106,7 +106,7 @@ mysqli_close($dbc);
         </div>
 
         <p style="float: none;" ><i class="p-icon-eu"></i> Criado por Fabricio Patrocínio</p>
-        <p>Experimente ser admin, aprove as publicações ou remova. <br> Usuário 'root', senha 'root'</p>
+        <p>Experimente ser admin, aprove as publicações ou remova. <br> Usuário: root, senha: root</p>
         <a href="admin.php" class="link"><i class="p-icon-admin"></i>Link pag Admin</a>
     </footer>
 </body>
