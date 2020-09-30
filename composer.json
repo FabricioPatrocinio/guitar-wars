@@ -1,0 +1,13 @@
+{
+    "autoload":{
+        "psr-4": {
+            "Source\\": "source/"
+        },
+        "files": [
+            "source/Config.php"
+        ]
+    },
+    "require": {
+        "league/oauth2-facebook": "^2.0"
+    }
+}

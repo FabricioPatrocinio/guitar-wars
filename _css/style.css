@@ -14,6 +14,10 @@ body {
     font-family: Chilanka, Arial, Helvetica, sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 div#brinks {
     width: 95%;
     max-width: 400px;
@@ -161,7 +165,7 @@ tr.trs td {
     padding-bottom: 5px;
 }
 
-tr:nth-child(2n + 2) {
+tr:nth-child(2n+2) {
     background: rgba(0, 0, 0, .2);
 }
 
@@ -187,7 +191,7 @@ tr.score-row-remove td a {
     text-shadow: 1px 1px 1px #000;
 }
 
-tr.score-row-remove:nth-child(2n + 2) {
+tr.score-row-remove:nth-child(2n+2) {
     color: #fff !important;
     background: rgba(0, 0, 0, .2);
 }
@@ -333,10 +337,6 @@ a {
     color: #686de0;
 }
 
-a:hover {
-    color: #474ec9;
-}
-
 a.link {
     background: #686de0;
     font-size: 11pt;
@@ -351,12 +351,43 @@ a.link:hover {
     box-shadow: 1px 1px 3px #666;
 }
 
+
 /* -------------- forms ------------- */
+
 form {
     width: 100%;
     padding: 10% 0 0 0;
     margin: 0;
     border-radius: 3px;
+}
+
+img.log-img {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: solid 2px #ffbe76;
+}
+
+p.log-name {
+    font-size: 12pt;
+    color: #ffbe76;
+    text-align: center;
+}
+
+.btn-log {
+    padding: 10px;
+    padding-left: 40px;
+    float: left;
+    margin: 10px 0;
+    font-size: 11pt;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #000;
+    background: #686de0 url('../_img/facebook.png') left 10px center / 24px no-repeat;
 }
 
 label {
@@ -461,14 +492,16 @@ img.img-previus {
     display: inline-block;
 }
 
-.row-bg:nth-child(2n + 2) {
+.row-bg:nth-child(2n+2) {
     background: rgba(0, 0, 0, .2);
     border: solid 1px #1a1a1a;
     border-radius: 3px;
     box-sizing: border-box;
 }
 
+
 /* style pag removescore */
+
 span.font-m {
     display: block;
     font-size: 1.5em;
@@ -516,7 +549,7 @@ span.font-m-app {
     border-radius: 3px;
 }
 
-.submit{
+.submit {
     width: 100%;
     font-size: 11pt;
     padding: 10px 0;
@@ -545,6 +578,7 @@ span.font-m-app {
 
 
 /* The container */
+
 .container {
     display: block;
     position: relative;
@@ -558,7 +592,9 @@ span.font-m-app {
     user-select: none;
 }
 
+
 /* Hide the browser's default checkbox */
+
 .container input {
     position: absolute;
     opacity: 0;
@@ -567,7 +603,9 @@ span.font-m-app {
     width: 0;
 }
 
+
 /* Create a custom checkbox */
+
 .checkmark {
     position: absolute;
     top: 0;
@@ -579,29 +617,39 @@ span.font-m-app {
     box-shadow: 1px 1px 2px #000;
 }
 
+
 /* On mouse-over, add a grey background color */
+
 .container:hover input~.checkmark {
     background-color: #ccc;
 }
 
+
 /* When the checkbox is checked, add a red background */
+
 .container input:checked~.checkmark {
     background-color: #eb4d4b;
 }
 
+
 /* Create the checkmark/indicator (hidden when not checked) */
+
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
+
 /* Show the checkmark when checked */
+
 .container input:checked~.checkmark:after {
     display: block;
 }
 
+
 /* Style the checkmark/indicator */
+
 .container .checkmark:after {
     left: 9px;
     top: 5px;
@@ -614,7 +662,9 @@ span.font-m-app {
     transform: rotate(45deg);
 }
 
+
 /* style pag removescore */
+
 footer {
     width: 100%;
     padding: 50px 0;
@@ -657,7 +707,6 @@ div.icons {
 }
 
 @media screen and (max-width: 460px) {
-
     div.content,
     div#content-form {
         width: 80%;
@@ -668,13 +717,11 @@ div.icons {
         padding: 15px 0;
         padding-left: 20%;
     }
-
     #form-remove {
         width: 80%;
         padding: 10%;
         margin: 20px 0;
     }
-
     .score-inf {
         width: 90%;
         padding: 5%;

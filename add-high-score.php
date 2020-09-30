@@ -25,67 +25,123 @@
                 <a href="add-high-score.php"><li>Novo Recorde</li></a>
             </ul>
         </nav>
-        <p class="apres">Logo mais você será um Guitar God.</p>
+        <p>Adicione seu recorde e faça seu nome atravessar gerações como Guitar God!</p>
         <?php
-date_default_timezone_set('America/Sao_Paulo');
-$date = date('Y-m-d H:i');
-// compartiha os scripts
-require_once 'connectvars.php';
-require_once 'appvars.php';
+            date_default_timezone_set('America/Sao_Paulo');
+            $date = date('Y-m-d H:i');
+            // compartiha os scripts
+            require_once 'connectvars.php';
+            require_once 'appvars.php';
 
-if (isset($_POST['submit']) && isset($_FILES['screenshot']['name'])) {
-    $name = $_POST['name'];
-    $score = $_POST['score'];
-    $music = $_POST['music'];
-    $screenshot = $_FILES['screenshot']['name'];
-    $screenshot_type = $_FILES['screenshot']['type'];
-    $screenshot_size = $_FILES['screenshot']['size'];
+            // Login facebook
+            require_once __DIR__ . "/vendor/autoload.php";
+            
+            // Login social with facebook
+            if(empty($_SESSION["userLogin"])){
+                echo "<p class='erro-yellow'>Faça login com o facebook para adicionar seu recorde.</p>";
 
-    if (!empty($name) && !empty($score) && !empty($screenshot) && !empty($music)) {
-        // move o arquivo para pasta alvo
-        // time() --> gera numeros unicos, para evitar imagens com mesmo nome
-        $screenshot_newname = time() . $screenshot;
-        $target = GW_UPLOADPATH . $screenshot_newname;
+                /**
+                 * AUTH FACEBOOK
+                 */
+                $facebook = new \League\OAuth2\Client\Provider\Facebook([
+                    'clientId'          => FACEBOOK["app_id"],
+                    'clientSecret'      => FACEBOOK["app_secret"],
+                    'redirectUri'       => FACEBOOK["app_redirect"],
+                    'graphApiVersion'   => FACEBOOK["app_version"]
+                ]);
 
-        if ($_FILES['screenshot']['error'] == 0) {
-            //move o arquivo para pasta alvo
-            if (($screenshot_type == 'image/png') || ($screenshot_type == 'image/gif') || ($screenshot_type == 'image/jpeg') || ($screenshot_type == 'image/jpg') && ($screenshot_size <= GW_MAXFILESIZE)) {
-                //conecta-se ao banco de dados
-                if (move_uploaded_file($_FILES['screenshot']['tmp_name'], $target)) {
-                    $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+                $authUrl = $facebook->getAuthorizationUrl([
+                    "scope" => ["email"]
+                ]);
 
-                    $query = "INSERT INTO guitarwars VALUES (DEFAULT, '$date', '$name', '$score', '$music', '$screenshot_newname', 0)";
-                    mysqli_query($dbc, $query);
-                    echo '<p class="confirmacao">Parabéns! <br> Seu recorde foi adicionado com sucesso!</p>';
-
-                    $name = ""; // clear values
-                    $score = "";
-                    $music = "";
-                    $screenshot = "";
-
-                    mysqli_close($dbc);
-                } else {
-                    echo '<p class="erro">Erro ao enviar.</p>';
+                $error = filter_input(INPUT_GET, "error", FILTER_SANITIZE_STRIPPED);
+                if($error){
+                    echo "<p class='erro'>Você precisa autorizar para adicionar seu recorde!</p>";
                 }
-            } else {
-                echo '<p class="erro erro-yellow">Formato invalido ou imagem muito grande! <br> Por favor, envie uma imagem em um dos seguintes formatos PNG, JPG, PJEPG ou GIF ou reduza sua imagem para 32KB. Para reduzir sua imagem acesse: <a href="https://www.easy-resize.com/pt/" target="_blank">easy-resize</a></p>';
-            }
-        } else {
-            echo '<p class="erro erro-yellow">O arquivo precisa ser um gráfico GIF, JPEG, ou PNG com menos de ' . (GW_MAXFILESIZE / 1024) . 'KB de tamanho. Para reduzir sua imagem acesse: <a href="https://www.easy-resize.com/pt/" target="_blank">easy-resize</a></p>';
 
-            //try file graphic temporary
-            @unlink($_FILES['screenshot']['tmp_name']);
-        }
-    } else {
-        echo '<p class="erro">Por favor, insira todas as informações para adicionar seu recorde.</p>';
-    }
-}
-?>
+                $code = filter_input(INPUT_GET, "code", FILTER_SANITIZE_STRIPPED);
+                if($code){
+                    $token = $facebook->getAccessToken("authorization_code", [
+                        "code" => $code
+                    ]);
+                    
+                    $_SESSION["userLogin"] = $facebook->getResourceOwner($token);
+                    header("Refresh: 0");
+                }
+
+                // Link login
+                echo "<a title='FB Login' class='btn-log' href='{$authUrl}'>Facebook Login</a>";
+            }else{
+                /**
+                 * @var user \League\OAuth2\Client\Provider\FacebookUser
+                 */
+                $user = $_SESSION["userLogin"];
+                echo "<img src='{$user->getPictureUrl()}' class='log-img' />";
+                echo "<p class='log-name'>{$user->getName()}</p>";
+
+                // Link logout
+                echo "<a title='Sair' class='btn-log' href='?off=true'>Sair</a>";
+                $off = filter_input(INPUT_GET, "off", FILTER_VALIDATE_BOOLEAN);
+                
+                if($off){
+                    unset($_SESSION["userLogin"]);
+                    header("Refresh: 0");
+                }
+            }
+
+            if (isset($_POST['submit']) && isset($_FILES['screenshot']['name'])) {
+                $name = $_POST['name'];
+                $score = $_POST['score'];
+                $music = $_POST['music'];
+                $screenshot = $_FILES['screenshot']['name'];
+                $screenshot_type = $_FILES['screenshot']['type'];
+                $screenshot_size = $_FILES['screenshot']['size'];
+
+                if (!empty($name) && !empty($score) && !empty($screenshot) && !empty($music)) {
+                    // move o arquivo para pasta alvo
+                    // time() --> gera numeros unicos, para evitar imagens com mesmo nome
+                    $screenshot_newname = time() . $screenshot;
+                    $target = GW_UPLOADPATH . $screenshot_newname;
+
+                    if ($_FILES['screenshot']['error'] == 0) {
+                        //move o arquivo para pasta alvo
+                        if (($screenshot_type == 'image/png') || ($screenshot_type == 'image/gif') || ($screenshot_type == 'image/jpeg') || ($screenshot_type == 'image/jpg') && ($screenshot_size <= GW_MAXFILESIZE)) {
+                            //conecta-se ao banco de dados
+                            if (move_uploaded_file($_FILES['screenshot']['tmp_name'], $target)) {
+                                $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+                                $query = "INSERT INTO guitarwars VALUES (DEFAULT, '$date', '$name', '$score', '$music', '$screenshot_newname', 0)";
+                                mysqli_query($dbc, $query);
+                                echo '<p class="confirmacao">Parabéns! <br> Seu recorde foi adicionado com sucesso!</p>';
+
+                                $name = ""; // clear values
+                                $score = "";
+                                $music = "";
+                                $screenshot = "";
+
+                                mysqli_close($dbc);
+                            } else {
+                                echo '<p class="erro">Erro ao enviar.</p>';
+                            }
+                        } else {
+                            echo '<p class="erro erro-yellow">Formato invalido ou imagem muito grande! <br> Por favor, envie uma imagem em um dos seguintes formatos PNG, JPG, PJEPG ou GIF ou reduza sua imagem para 32KB. Para reduzir sua imagem acesse: <a href="https://www.easy-resize.com/pt/" target="_blank">easy-resize</a></p>';
+                        }
+                    } else {
+                        echo '<p class="erro erro-yellow">O arquivo precisa ser um gráfico GIF, JPEG, ou PNG com menos de ' . (GW_MAXFILESIZE / 1024) . 'KB de tamanho. Para reduzir sua imagem acesse: <a href="https://www.easy-resize.com/pt/" target="_blank">easy-resize</a></p>';
+
+                        //try file graphic temporary
+                        @unlink($_FILES['screenshot']['tmp_name']);
+                    }
+                } else {
+                    echo '<p class="erro">Por favor, insira todas as informações para adicionar seu recorde.</p>';
+                }
+            }
+        ?>
 
         <form enctype="multipart/form-data" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <input type="hidden" name="MAX_FILE_SIZE" value="320000">
             <!-- <label for="name">Nome do Guitar Hero </label><br> -->
-            <input type="text" id="name" name="name" placeholder="Nome do guitar hero" value="<?php if (!empty($name)) { echo $name; }?>"><label>
+            <input type="text" id="name" name="name" placeholder="Nome do guitar hero" value="<?php if (!empty($user->getName())) { echo $user->getName(); }?>"><label>
             <!-- <label for="score">Pontuação </label><br> -->
             <input type="number" id="score" name="score" maxlength="7" max="9999999" oninput="maxLengthCheck(this)" placeholder="EX: 1000000" value="<?php if (!empty($score)) { echo $score; }?>">
             <br>
