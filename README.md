@@ -2,11 +2,11 @@
 
 Autor - Fabrício Patrocínio
 
-###### Criado inspirado no livro Use a cabeça com PHP e MySQL
+## Criado inspirado no livro Use a cabeça com PHP e MySQL
 
 Site dinâmico de recordes do jogo Guitar Hero, onde os usuários poderão adicionar seus recordes e inserir imagens que prove a façanha. Após adicionado o recorde o admin terá que aprovar ou caso contrário remover.
 
-###### Login com facebook
+## Login com facebook
 
 Usei OAuth 2 Client uma API do [the php league](https://thephpleague.com/pt-br/) para pegar alguns dados do facebook como nome de usuário, email e imagem para autenticação.
 
