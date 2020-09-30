@@ -78,13 +78,8 @@ if (isset($_POST['submit'])) {
 
     //formulário
     echo '<form method="post" action="removescore.php" id="form-remove">';
-    echo '<label class="container">Sim';
+    echo '<label class="container">Estou ciente, deletar!';
     echo '<input type="checkbox" name="confirm" value="Yes" />';
-    echo '<span class="checkmark"></span>';
-    echo '</label>';
-
-    echo '<label class="container">Não';
-    echo '<input type="checkbox" name="confirm" checked="checked" value="No" />';
     echo '<span class="checkmark"></span>';
     echo '</label>';
 
