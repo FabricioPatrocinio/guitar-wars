@@ -71,7 +71,7 @@ while ($row = mysqli_fetch_array($data)) {
     $i++;
     if ($i == 1) {
         echo '<h1 id="top-score">Melhor de todos #' . $row['score'] . '</h1>';
-        echo '<span class="top-name">Top #1 ' . $row['name'] . '</span><br>';
+        echo '<h2 class="top-name">Top #1 ' . $row['name'] . '</h2><br>';
     }
     echo '<div class="row-bg">';
     echo '<div class="score-inf">';

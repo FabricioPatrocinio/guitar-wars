@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Peddana&family=Special+Elite&display=swap');
 @font-face {
     font-family: guitar hero;
     src: url("../fonts/chequered-ink_strings-theory/StringsTheory-2yYK.ttf");
@@ -22,10 +23,14 @@ nav,
 ul,
 li,
 p,
-a {
+a,
+span,
+button,
+input {
     margin: 0;
     padding: 0;
     text-decoration: none;
+    font-family: 'Special Elite', cursive;
 }
 
 ul.ul-menu,
@@ -294,20 +299,18 @@ p {
 h1 {
     width: 100%;
     color: #ffbe76;
-    float: left;
-    padding: 40px 0;
-    margin-bottom: 0;
     text-align: center;
     font-size: 2em;
-    font-family: guitar hero;
+    font-family: 'Amatic SC';
     letter-spacing: 3px;
-    background: url('../_img/john-5.png') left center / 200px no-repeat;
 }
 
 h2 {
     width: 100%;
     color: #fff;
+    font-size: 1.6em;
     text-align: center;
+    font-family: 'Amatic SC';
 }
 
 p {
