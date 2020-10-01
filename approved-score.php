@@ -14,7 +14,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 </head>
 <body>
-    <img src="_img/logo.png" alt="" id="logo">
+    <div class="bac-menu">
+        <div class="container">
+            <img src="_img/logo.png" alt="Logo Guitar Wars" class="logo-gw">
+            <nav class="menu">
+                <ul class="ul-menu">
+                    <li><a href="index.php">Recordes</a></li>
+                    <li><a href="add-high-score.php">Add Recorde</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
     <div id="content-form">
         <?php
 require_once 'appvars.php';
