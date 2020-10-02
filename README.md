@@ -14,11 +14,10 @@ Usei OAuth 2 Client uma API do [the php league](https://thephpleague.com/pt-br/)
 - PHP 7
 - HTML, CSS
 - JavaScript
-- Incones baixados
-[flaticon](https://www.flaticon.com/)
+- Incones baixados no [flaticon](https://www.flaticon.com/)
 
 ## Paginas acessiveis
-- Home
+- Home lista dos recordes
 - Adicionar recorde
 - Admin
 - Remover recorde
