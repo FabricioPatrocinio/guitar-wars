@@ -11,10 +11,6 @@ body {
     background: url('../_img/john5.jpeg') left top / 100%;
 }
 
-* {
-    font-family: Roboto, Helvetica, sans-serif;
-}
-
 
 /* Menu responsive */
 
@@ -82,12 +78,28 @@ ul.ul-menu li a {
 
 ul.ul-menu li:nth-child(1) a {
     padding-left: 40px;
-    background: #808080 url('../_img/trophy.png') left 10px center / 25px no-repeat;
+    background: #808080 url('../_img/trophy.png') left 10px center / 23px no-repeat;
 }
 
 ul.ul-menu li:nth-child(2) a {
     padding-left: 40px;
-    background: #808080 url('../_img/plus.png') left 10px center / 25px no-repeat;
+    background: #808080 url('../_img/plus.png') left 10px center / 23px no-repeat;
+}
+
+
+/* Container float */
+
+div.container-float {
+    width: 100%;
+    float: left;
+}
+
+div.container-bac {
+    width: 100%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 60px 0;
+    background: rgba(15, 44, 37, .8);
 }
 
 
@@ -175,7 +187,6 @@ div#container-form {
 
 div.scroll {
     width: 100%;
-    display: block;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
@@ -305,6 +316,14 @@ h1 {
     letter-spacing: 3px;
 }
 
+h1.display-1 {
+    width: 80%;
+    padding: 0 10%;
+    padding-bottom: 20px;
+    font-size: 2em;
+    font-family: 'Special Elite', cursive;
+}
+
 h2 {
     width: 100%;
     color: #fff;
@@ -314,7 +333,6 @@ h2 {
 }
 
 p {
-    width: 100%;
     padding: 10px;
     color: #fff;
     font-size: 12pt;
@@ -414,6 +432,7 @@ img.log-img {
 
 p.log-name {
     padding: 0;
+    margin-top: 5px;
     font-size: 12pt;
     color: #ffbe76;
     text-align: center;
@@ -421,13 +440,13 @@ p.log-name {
 
 .btn-log {
     width: auto;
-    padding: 10px;
+    padding: 12px;
     padding-left: 40px;
     margin: 10px 0;
     display: block;
     color: #fff;
     border-radius: 5px;
-    font-size: 10pt;
+    font-size: 11pt;
     text-shadow: 1px 2px 1px #666;
     border-bottom: 3px solid rgba(0, 0, 0, .5);
     background: #686de0 url('../_img/facebook-white.png') left 10px center / 24px no-repeat;
@@ -551,6 +570,7 @@ span.font-m {
     font-weight: bold;
     color: #fff;
     padding-left: 30px;
+    font-family: 'Amatic SC';
     background: url('../_img/lixeira.png') left center / 24px no-repeat;
 }
 
@@ -717,8 +737,18 @@ footer {
     background: rgba(15, 44, 37, .8);
 }
 
+
+/* style icons */
+
 .fa {
     width: 50px;
+    color: #fff;
+}
+
+.fa:hover {
+    width: 50px;
+    color: #686de0;
+    text-shadow: #ccc;
 }
 
 div.icons {
@@ -730,12 +760,6 @@ div.icons {
     border-radius: 3px;
     box-sizing: border-box;
     box-shadow: 1px 2px 3px #000;
-}
-
-.fa-facebook::before {
-    width: 50px !important;
-    height: 50px;
-    background-size: 50px !important;
 }
 
 .meng-cell {

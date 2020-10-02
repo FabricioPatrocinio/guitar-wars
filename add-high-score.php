@@ -109,9 +109,9 @@
                     $target = GW_UPLOADPATH . $screenshot_newname;
 
                     if ($_FILES['screenshot']['error'] == 0) {
-                        //move o arquivo para pasta alvo
+                        // Move the files to folder
                         if (($screenshot_type == 'image/png') || ($screenshot_type == 'image/gif') || ($screenshot_type == 'image/jpeg') || ($screenshot_type == 'image/jpg') && ($screenshot_size <= GW_MAXFILESIZE)) {
-                            //conecta-se ao banco de dados
+                            // Now connect database
                             if (move_uploaded_file($_FILES['screenshot']['tmp_name'], $target)) {
                                 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
@@ -119,7 +119,8 @@
                                 mysqli_query($dbc, $query);
                                 echo '<p class="confirmacao">Parabéns! <br> Seu recorde foi adicionado com sucesso!</p>';
 
-                                $name = ""; // clear values
+                                // Clear the values of the vars
+                                $name = "";
                                 $score = "";
                                 $music = "";
                                 $screenshot = "";
@@ -134,7 +135,7 @@
                     } else {
                         echo '<p class="erro erro-yellow">O arquivo precisa ser um gráfico GIF, JPEG, ou PNG com menos de ' . (GW_MAXFILESIZE / 1024) . 'KB de tamanho. Para reduzir sua imagem acesse: <a href="https://www.easy-resize.com/pt/" target="_blank">easy-resize</a></p>';
 
-                        //try file graphic temporary
+                        // Try file graphic temporary
                         @unlink($_FILES['screenshot']['tmp_name']);
                     }
                 } else {
@@ -145,13 +146,9 @@
 
         <form enctype="multipart/form-data" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <input type="hidden" name="MAX_FILE_SIZE" value="320000">
-            <!-- <label for="name">Nome do Guitar Hero </label><br> -->
             <input type="text" id="name" name="name" placeholder="Nome do guitar hero" value="<?php if (!empty($user->getName())) { echo $user->getName(); }?>"><label>
-            <!-- <label for="score">Pontuação </label><br> -->
             <input type="number" id="score" name="score" maxlength="7" max="9999999" oninput="maxLengthCheck(this)" placeholder="EX: 1000000" value="<?php if (!empty($score)) { echo $score; }?>">
-            <br>
             <input type="text" id="add-music" name="music" placeholder="Musica - (Banda)" value="<?php if (!empty($music)) { echo $music; }?>">
-            <br>
             <label for="score"><strong>Cadê a prova?</strong> selecione uma foto</label><br>
             <div id="file">
                 <input type="file" accept="image/jpeg, image/jpg, image/png, image/gif" id="screenshot" name="screenshot" enctype="multipart/form-data" placeholder="Selecionar arquivo"> <br>
@@ -166,18 +163,16 @@
         <p id="copy" style="float: none;">
             &reg; Guitar Wars High Score- 2019
         </p>
+        <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
 
         <!-- Icons online and my social midia -->
         <div class="icons">
+            <p>Siga-me nas redes sociais</p>
             <a href="https://www.facebook.com/fabricio.schiffer" target="_blank" class="fa fa-facebook"></a>
             <a href="https://www.instagram.com/fabricio_patrocinio_/?hl=pt-br" target="_blank" class="fa fa-instagram"></a>
             <a href="https://www.youtube.com/channel/UCZSB3-asIKR4ywZTnlvbZ3Q?view_as=subscriber" target="_blank" class="fa fa-youtube"></a>
             <a href="https://github.com/FabricioPatrocinio/guitar-wars" target="_blank" class="fa fa-github"></a>
         </div>
-
-        <p style="float: none;" ><i class="p-icon-eu"></i> Criado por Fabricio Patrocínio</p>
-        <p>Experimente ser admin, aprove as publicações ou remova. <br> Usuário 'root', senha 'root'</p>
-        <a href="admin.php" class="link"><i class="p-icon-admin"></i>Link pag Admin</a>
     </footer>
 
     <script>

@@ -50,68 +50,67 @@
         <button id="pause" onclick="document.querySelector('#demo').pause()"></button>
     </div>
 
-    <div class="content">
-        <p class="icon-top">Top list de recordes Guitar Hero. Adicione o seu! <br> Link para Admin no radapé da pagina Usuario 'root', senha 'root'</p>
+    <div class="container-float">
+        <div class="container-bac">
+        <h1 class="display-1">Top list de recordes Guitar Hero. Adicione o seu também e se torne um stars guitar!</h1>
         <?php
-// share the scripts
-require_once 'connectvars.php';
-require_once 'appvars.php';
+        // share the scripts
+        require_once 'connectvars.php';
+        require_once 'appvars.php';
 
-$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+        $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-$query = "SELECT Year(date) as ano, MONTH(date) as mes, DAY(date) as dia, guitarwars.* FROM guitarwars WHERE approved = 1 ORDER BY score DESC, date ASC";
-$data = mysqli_query($dbc, $query);
+        $query = "SELECT Year(date) as ano, MONTH(date) as mes, DAY(date) as dia, guitarwars.* FROM guitarwars WHERE approved = 1 ORDER BY score DESC, date ASC";
+        $data = mysqli_query($dbc, $query);
 
-// array names months
- $mes = array(1 => "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+        // array names months
+        $mes = array(1 => "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
 
-$i = 0;
-echo '<div id="db-data">';
-while ($row = mysqli_fetch_array($data)) {
-    $i++;
-    if ($i == 1) {
-        echo '<h1 id="top-score">Melhor de todos #' . $row['score'] . '</h1>';
-        echo '<h2 class="top-name">Top #1 ' . $row['name'] . '</h2><br>';
-    }
-    echo '<div class="row-bg">';
-    echo '<div class="score-inf">';
-    echo '<span class="score">' . $row['score'] . '</span><br>';
-    echo '<span class="name">' . $row['name'] . '</span><br>';
-    echo '<span class="music">' . $row['music'] . '</span><br>';
-    echo '<span class="date">Do dia ' . $row['dia'] . ' de ' . $mes[$row['mes']] . ' de ' . $row['ano'] . '</span><br></td>';
-    echo '</div>';
-    echo '<div class="score-inf">';
-    if (is_file(GW_UPLOADPATH . $row['screenshot']) && filesize(GW_UPLOADPATH . $row['screenshot']) > 0) {
-        // check if they are null
-        echo '<td class="score-inf"><img src="' . GW_UPLOADPATH . $row['screenshot'] . '" class="screenshot"></td></tr>';
-    } else {
-        echo '<td class="score-img"><img src="" alt="Unverified score :/" class="screenshot"></td></tr>';
-    }
-    echo '</div>';
-    echo '</div>';
-}
-echo '</div>';
+        $i = 0;
+        echo '<div id="db-data">';
+        while ($row = mysqli_fetch_array($data)) {
+            $i++;
+            if ($i == 1) {
+                echo '<h2 class="top-name">Top #1 ' . $row['name'] . ', Melhor pontuação de todas '. $row['score'] .'</h2><br>';
+            }
+            echo '<div class="row-bg">';
+            echo '<div class="score-inf">';
+            echo '<span class="score">' . $row['score'] . '</span><br>';
+            echo '<span class="name">' . $row['name'] . '</span><br>';
+            echo '<span class="music">' . $row['music'] . '</span><br>';
+            echo '<span class="date">Do dia ' . $row['dia'] . ' de ' . $mes[$row['mes']] . ' de ' . $row['ano'] . '</span><br></td>';
+            echo '</div>';
+            echo '<div class="score-inf">';
+            if (is_file(GW_UPLOADPATH . $row['screenshot']) && filesize(GW_UPLOADPATH . $row['screenshot']) > 0) {
+                // check if they are null
+                echo '<td class="score-inf"><img src="' . GW_UPLOADPATH . $row['screenshot'] . '" class="screenshot"></td></tr>';
+            } else {
+                echo '<td class="score-img"><img src="" alt="Unverified score :/" class="screenshot"></td></tr>';
+            }
+            echo '</div>';
+            echo '</div>';
+        }
+        echo '</div>';
 
-mysqli_close($dbc);
-?>
+        mysqli_close($dbc);
+        ?>
+        </div>
     </div>
 
     <footer>
         <p id="copy" style="float: none;">
             &reg; Guitar Wars High Score- 2019
         </p>
+        <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
 
         <!-- Icons online and my social midia -->
         <div class="icons">
+            <p>Siga-me nas redes sociais</p>
             <a href="https://www.facebook.com/fabricio.schiffer" target="_blank" class="fa fa-facebook"></a>
             <a href="https://www.instagram.com/fabricio_patrocinio_/?hl=pt-br" target="_blank" class="fa fa-instagram"></a>
             <a href="https://www.youtube.com/channel/UCZSB3-asIKR4ywZTnlvbZ3Q?view_as=subscriber" target="_blank" class="fa fa-youtube"></a>
             <a href="https://github.com/FabricioPatrocinio/guitar-wars" target="_blank" class="fa fa-github"></a>
         </div>
-
-        <p style="float: none;" ><i class="p-icon-eu"></i> Criado por Fabricio Patrocínio</p>
-        <p>Experimente ser admin, aprove as publicações ou remova. <br> Usuário: root, senha: root</p>
-        <a href="admin.php" class="link"><i class="p-icon-admin"></i>Link pag Admin</a>
     </footer>
 </body>
 </html>
