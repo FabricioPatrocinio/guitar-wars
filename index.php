@@ -26,7 +26,7 @@
 
 </head>
 <body>
-    <div class="bac-menu">
+    <header class="bac-menu">
         <div class="container">
             <img src="_img/logo.png" alt="Logo Guitar Wars" class="logo-gw">
             <nav class="menu">
@@ -36,7 +36,7 @@
                 </ul>
             </nav>
         </div>
-    </div>
+    </header>
 
     <audio id="demo" controls style="display: none;">
         <source src="_music/buckethead_jordan.mp3" type="audio/mpeg">
