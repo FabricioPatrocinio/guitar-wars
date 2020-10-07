@@ -52,7 +52,7 @@
 
     <div class="container-float">
         <div class="container-bac">
-        <h1 class="display-1">Top list de recordes Guitar Hero. Adicione o seu também e se torne um stars guitar!</h1>
+        <h1>Top list de recordes Guitar Hero. <br> Adicione o seu também e se torne um stars guitar!</h1>
         <?php
         // share the scripts
         require_once 'connectvars.php';
@@ -71,8 +71,9 @@
         while ($row = mysqli_fetch_array($data)) {
             $i++;
             if ($i == 1) {
-                echo '<h2 class="top-name">Top #1 ' . $row['name'] . ', Melhor pontuação de todas '. $row['score'] .'</h2><br>';
+                echo '<h2 class="top-name">Top #1 ' . $row['name'] . ', <br> Melhor pontuação de todas #'. $row['score'] .'</h2><br>';
             }
+            echo '<div class="flex-container"></div>';
             echo '<div class="row-bg">';
             echo '<div class="score-inf">';
             echo '<span class="score">' . $row['score'] . '</span><br>';
@@ -87,6 +88,7 @@
             } else {
                 echo '<td class="score-img"><img src="" alt="Unverified score :/" class="screenshot"></td></tr>';
             }
+            echo '</div>';
             echo '</div>';
             echo '</div>';
         }

@@ -9,5 +9,4 @@ if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW']) || ($_S
     header('WWW-Authenticate: Basic realm="Guitar Wars"');
     exit('<h2>Guitar Wars</h2> Desculpe, você precisa digitar uma senha válida par acessar esta página..');
 }
-
 ?>
