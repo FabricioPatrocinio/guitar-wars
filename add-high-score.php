@@ -43,7 +43,7 @@
             
             // Login social with facebook
             if(empty($_SESSION["userLogin"])){
-                echo "<p class='erro-yellow'>Faça login com o facebook para adicionar seu recorde.</p>";
+                echo "<p class='erro erro-yellow'>Faça login com o facebook para adicionar seu recorde.</p>";
 
                 /**
                  * AUTH FACEBOOK
@@ -61,7 +61,7 @@
 
                 $error = filter_input(INPUT_GET, "error", FILTER_SANITIZE_STRIPPED);
                 if($error){
-                    echo "<p class='erro'>Você precisa autorizar para adicionar seu recorde!</p>";
+                    echo "<p class='erro erro-yellow'>Você precisa autorizar para adicionar seu recorde!</p>";
                 }
 
                 $code = filter_input(INPUT_GET, "code", FILTER_SANITIZE_STRIPPED);
@@ -75,7 +75,7 @@
                 }
 
                 // Link login
-                echo "<a title='FB Login' class='btn-log' href='{$authUrl}'>Facebook Login</a>";
+                echo "<a title='Facebook login' class='btn-small btn-blue btn-log' href='{$authUrl}'>Entrar com facebook</a>";
             }else{
                 /**
                  * @var user \League\OAuth2\Client\Provider\FacebookUser
@@ -85,7 +85,7 @@
                 echo "<p class='log-name'>{$user->getName()}</p>";
 
                 // Link logout
-                echo "<a title='Sair' class='btn-log' href='?off=true'>Sair</a>";
+                echo "<a title='Sair' class='btn-small btn-log btn-red' href='?off=true'>Sair da conta</a>";
                 $off = filter_input(INPUT_GET, "off", FILTER_VALIDATE_BOOLEAN);
                 
                 if($off){
@@ -117,7 +117,7 @@
 
                                 $query = "INSERT INTO guitarwars VALUES (DEFAULT, '$date', '$name', '$score', '$music', '$screenshot_newname', 0)";
                                 mysqli_query($dbc, $query);
-                                echo '<p class="confirmacao">Parabéns! <br> Seu recorde foi adicionado com sucesso!</p>';
+                                echo '<p class="erro confirmacao">Parabéns! <br> Seu recorde foi adicionado com sucesso!</p>';
 
                                 // Clear the values of the vars
                                 $name = "";
@@ -127,19 +127,19 @@
 
                                 mysqli_close($dbc);
                             } else {
-                                echo '<p class="erro">Erro ao enviar.</p>';
+                                echo '<p class="erro erro-red">Erro ao enviar.</p>';
                             }
                         } else {
                             echo '<p class="erro erro-yellow">Formato invalido ou imagem muito grande! <br> Por favor, envie uma imagem em um dos seguintes formatos PNG, JPG, PJEPG ou GIF ou reduza sua imagem para 32KB. Para reduzir sua imagem acesse: <a href="https://www.easy-resize.com/pt/" target="_blank">easy-resize</a></p>';
                         }
                     } else {
-                        echo '<p class="erro erro-yellow">O arquivo precisa ser um gráfico GIF, JPEG, ou PNG com menos de ' . (GW_MAXFILESIZE / 1024) . 'KB de tamanho. Para reduzir sua imagem acesse: <a href="https://www.easy-resize.com/pt/" target="_blank">easy-resize</a></p>';
+                        echo '<p class="erro erro-yellow">A imagem precisa ser do tipo GIF, JPEG, ou PNG com menos de ' . (GW_MAXFILESIZE / 1024) . 'KB de tamanho. Para reduzir sua imagem acesse. <a href="https://www.easy-resize.com/pt/" target="_blank">easy-resize</a></p>';
 
                         // Try file graphic temporary
                         @unlink($_FILES['screenshot']['tmp_name']);
                     }
                 } else {
-                    echo '<p class="erro">Por favor, insira todas as informações para adicionar seu recorde.</p>';
+                    echo '<p class="erro erro-red">Por favor, insira todas as informações para adicionar seu recorde.</p>';
                 }
             }
         ?>
@@ -152,9 +152,9 @@
             <label for="score"><strong>Cadê a prova?</strong> selecione uma foto</label><br>
             <div id="file">
                 <input type="file" accept="image/jpeg, image/jpg, image/png, image/gif" id="screenshot" name="screenshot" enctype="multipart/form-data" placeholder="Selecionar arquivo"> <br>
-                <span id="file-name">Selecione a captura de tela</span>
+                <span id="file-name">Selecione uma imagem</span>
             </div>
-            <input type="submit" value="Adicionar recorde" name="submit" id="submit">
+            <input type="submit" class="btn-medium btn-green" value="Adicionar recorde" name="submit">
         </form>
         </div>
     </div>

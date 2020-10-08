@@ -37,7 +37,7 @@ require_once 'authorize.php';
         </div>
 
         <h1 class="display-1">Pagina admin, Aprove ou remova.</h1>
-        <p class="meng-cell" style="padding-left: 0 !important;">Deslize para direita para aprovar ou remover <img src="_img/right-arrow.png" style="width: 10px;"></p>
+        <p class="meng-cell text-center">Deslize para direita para aprovar ou remover.</p>
 
         <?php
             require_once 'appvars.php';

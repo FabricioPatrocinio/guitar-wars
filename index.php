@@ -32,7 +32,8 @@
             <nav class="menu">
                 <ul class="ul-menu">
                     <li><a href="index.php">Recordes</a></li>
-                    <li><a href="add-high-score.php">Add Recorde</a></li>
+                    <li><a href="add-high-score.php">Adicionar</a></li>
+                    <li><a href="admin.php">Admin</a></li>
                 </ul>
             </nav>
         </div>
@@ -52,7 +53,7 @@
 
     <div class="container-float">
         <div class="container-bac">
-        <h1>Top list de recordes Guitar Hero. <br> Adicione o seu também e se torne um stars guitar!</h1>
+        <h1>Top list de recordes Guitar Hero. <br> Adicione o seu também e se torne um puta guitar hero!</h1>
         <?php
         // share the scripts
         require_once 'connectvars.php';
@@ -73,23 +74,22 @@
             if ($i == 1) {
                 echo '<h2 class="top-name">Top #1 ' . $row['name'] . ', <br> Melhor pontuação de todas #'. $row['score'] .'</h2><br>';
             }
-            echo '<div class="flex-container"></div>';
             echo '<div class="row-bg">';
-            echo '<div class="score-inf">';
-            echo '<span class="score">' . $row['score'] . '</span><br>';
-            echo '<span class="name">' . $row['name'] . '</span><br>';
-            echo '<span class="music">' . $row['music'] . '</span><br>';
-            echo '<span class="date">Do dia ' . $row['dia'] . ' de ' . $mes[$row['mes']] . ' de ' . $row['ano'] . '</span><br></td>';
-            echo '</div>';
-            echo '<div class="score-inf">';
-            if (is_file(GW_UPLOADPATH . $row['screenshot']) && filesize(GW_UPLOADPATH . $row['screenshot']) > 0) {
-                // check if they are null
-                echo '<td class="score-inf"><img src="' . GW_UPLOADPATH . $row['screenshot'] . '" class="screenshot"></td></tr>';
-            } else {
-                echo '<td class="score-img"><img src="" alt="Unverified score :/" class="screenshot"></td></tr>';
-            }
-            echo '</div>';
-            echo '</div>';
+                echo '<div class="score-inf">';
+                    echo '<span class="score">' . $row['score'] . '</span><br>';
+                    echo '<span class="name">' . $row['name'] . '</span><br>';
+                    echo '<span class="music">' . $row['music'] . '</span><br>';
+                    echo '<span class="date">Do dia ' . $row['dia'] . ' de ' . $mes[$row['mes']] . ' de ' . $row['ano'] . '</span><br></td>';
+                echo '</div>';
+
+                echo '<div class="score-inf">';
+                if (is_file(GW_UPLOADPATH . $row['screenshot']) && filesize(GW_UPLOADPATH . $row['screenshot']) > 0) {
+                    // check if they are null
+                    echo '<img src="' . GW_UPLOADPATH . $row['screenshot'] . '" class="screenshot">';
+                } else {
+                    echo '<img src="" alt="Unverified score :/" class="screenshot">';
+                }
+                echo '</div>';
             echo '</div>';
         }
         echo '</div>';
