@@ -8,25 +8,41 @@
     <title>Guitar Wars -Add Your High Score</title>
 
     <link rel="stylesheet" href="_css/style.css">
+
+    <!-- Fonts online -->
     <link href="https://fonts.googleapis.com/css?family=Chilanka|Roboto" rel="stylesheet">
 
+    <!-- Icons online -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 </head>
 <body>
-    <div class="bac-menu">
+    <header class="bac-menu">
         <div class="container">
+            <!-- Logo -->
             <img src="_img/logo.png" alt="Logo Guitar Wars" class="logo-gw">
+            <!-- Large acreen menu -->
+            <a href="#menu" class="btn-menu"></a>
             <nav class="menu">
                 <ul class="ul-menu">
                     <li><a href="index.php">Recordes</a></li>
-                    <li><a href="add-high-score.php">Add Recorde</a></li>
+                    <li><a href="add-high-score.php">Adicionar</a></li>
+                    <li><a href="admin.php">Admin</a></li>
+                </ul>
+            </nav>            
+        </div>
+        <div class="container-menu-reponsive">
+            <img src="_img/logo.png" alt="Logo Guitar Wars" class="logo-gw-mobile">
+            <!-- Menu mobile -->
+            <nav class="menu-mobile">
+                <ul class="ul-menu-mobile">
+                    <li><a href="index.php">Recordes</a></li>
+                    <li><a href="add-high-score.php">Adicionar</a></li>
+                    <li><a href="admin.php">Admin</a></li>
+                    <li><a href="#" class="btn-close">Fechar</a></li>
                 </ul>
             </nav>
         </div>
-    </div>
+    </header>
 
     <div id="content-form">
         <div id="container-form">
@@ -151,7 +167,7 @@
             <input type="text" id="add-music" name="music" placeholder="Musica - (Banda)" value="<?php if (!empty($music)) { echo $music; }?>">
             <label for="score"><strong>Cadê a prova?</strong> selecione uma foto</label><br>
             <div id="file">
-                <input type="file" accept="image/jpeg, image/jpg, image/png, image/gif" id="screenshot" name="screenshot" enctype="multipart/form-data" placeholder="Selecionar arquivo"> <br>
+                <input type="file" accept="image/jpeg, image/jpg, image/png, image/gif" id="screenshot" name="screenshot" enctype="multipart/form-data" placeholder="Selecionar arquivo">
                 <span id="file-name">Selecione uma imagem</span>
             </div>
             <input type="submit" class="btn-medium btn-green" value="Adicionar recorde" name="submit">
@@ -175,21 +191,6 @@
         </div>
     </footer>
 
-    <script>
-        var $input    = document.querySelector('#screenshot'),
-            $fileName = document.querySelector('#file-name');
-
-        $input.addEventListener('change', function(){
-            $fileName.innerHTML = this.value;
-        });
-
-        // Maxlegth = 7, input type number
-        // https://jsfiddle.net/DRSDavidSoft/zb4ft1qq/2/
-        function maxLengthCheck(object)
-        {
-            if (object.value.length > object.maxLength)
-            object.value = object.value.slice(0, object.maxLength)
-        }
-    </script>
+    <script src="js/menu.js"></script>
 </body>
 </html>

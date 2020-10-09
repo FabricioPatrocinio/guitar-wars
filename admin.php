@@ -10,25 +10,42 @@ require_once 'authorize.php';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Admin - Guitar Wars</title>
-
     <link rel="stylesheet" href="_css/style.css">
+
+    <!-- Fonts online -->
     <link href="https://fonts.googleapis.com/css?family=Chilanka|Roboto" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+    <!-- Icons online -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="bac-menu">
+    <header class="bac-menu">
         <div class="container">
+            <!-- Logo -->
             <img src="_img/logo.png" alt="Logo Guitar Wars" class="logo-gw">
+            <!-- Large acreen menu -->
+            <a href="#menu" class="btn-menu"></a>
             <nav class="menu">
                 <ul class="ul-menu">
                     <li><a href="index.php">Recordes</a></li>
-                    <li><a href="add-high-score.php">Add Recorde</a></li>
+                    <li><a href="add-high-score.php">Adicionar</a></li>
+                    <li><a href="admin.php">Admin</a></li>
+                </ul>
+            </nav>            
+        </div>
+        <div class="container-menu-reponsive">
+            <img src="_img/logo.png" alt="Logo Guitar Wars" class="logo-gw-mobile">
+            <!-- Menu mobile -->
+            <nav class="menu-mobile">
+                <ul class="ul-menu-mobile">
+                    <li><a href="index.php">Recordes</a></li>
+                    <li><a href="add-high-score.php">Adicionar</a></li>
+                    <li><a href="admin.php">Admin</a></li>
+                    <li><a href="#" class="btn-close">Fechar</a></li>
                 </ul>
             </nav>
         </div>
-    </div>
+    </header>
 
     <div class="container-float">
         <div class="container-bac">
@@ -81,13 +98,27 @@ require_once 'authorize.php';
     </div>
 
     <footer>
-        <p id="copy">&reg; Guitar Wars High Score- 2019</p>
+        <p id="copy" style="float: none;">
+            &reg; Guitar Wars High Score- 2019
+        </p>
+        <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
+
+        <!-- Icons online and my social midia -->
+        <div class="icons">
+            <p>Siga-me nas redes sociais</p>
+            <a href="https://www.facebook.com/fabricio.schiffer" target="_blank" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/fabricio_patrocinio_/?hl=pt-br" target="_blank" class="fa fa-instagram"></a>
+            <a href="https://www.youtube.com/channel/UCZSB3-asIKR4ywZTnlvbZ3Q?view_as=subscriber" target="_blank" class="fa fa-youtube"></a>
+            <a href="https://github.com/FabricioPatrocinio/guitar-wars" target="_blank" class="fa fa-github"></a>
+        </div>
     </footer>
 
     <script>
-        setInterval(function(){
+        // Little animation in the page admin
+        setInterval(function() {
             document.querySelector('#brinks').style.top = '-100%'
         }, 4000);
     </script>
+    <script src="js/menu.js"></script>
 </body>
 </html>

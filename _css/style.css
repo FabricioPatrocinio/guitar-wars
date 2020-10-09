@@ -36,7 +36,7 @@ img {
 }
 
 
-/* Menu responsive */
+/* Large screen menu */
 
 ul.ul-menu,
 nav.menu,
@@ -96,6 +96,89 @@ ul.ul-menu li:nth-child(2) a {
 }
 
 
+/* Menu mobile */
+
+.btn-menu {
+    width: 33px;
+    height: 33px;
+    border-radius: 5px;
+    background: #808080 url('../_img/menu.png') center center / 23px no-repeat;
+    border-bottom: 3px solid rgba(0, 0, 0, .5);
+    display: none;
+}
+
+.logo-gw-mobile {
+    width: 100%;
+    max-width: 300px;
+}
+
+.container-menu-reponsive {
+    width: 100%;
+    height: 100vh;
+    background: rgba(15, 44, 37, .9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transform: translateX(-100%);
+    transition: transform 200ms;
+}
+
+.close-menu {
+    transform: translate(0, 100%);
+}
+
+.open-menu {
+    transform: translateX(0);
+    transition: transform 200ms;
+}
+
+nav.menu-mobile {
+    width: 100%;
+    display: flex;
+}
+
+.menu-mobile ul {
+    list-style: none;
+    width: 100%;
+    padding: 30px;
+}
+
+.menu-mobile ul li {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.menu-mobile ul li a {
+    width: 100%;
+    display: block;
+    padding: 10px 15px;
+    background-color: #eb4d4b;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 10pt;
+    text-align: center;
+    text-shadow: 1px 2px 1px #666;
+    border-bottom: 3px solid rgba(0, 0, 0, .5);
+}
+
+.menu-mobile ul li:nth-child(1) a {
+    padding-left: 40px;
+    background: #808080 url('../_img/trophy.png') left 10px center / 23px no-repeat;
+}
+
+.menu-mobile ul li:nth-child(2) a {
+    padding-left: 40px;
+    background: #808080 url('../_img/plus.png') left 10px center / 23px no-repeat;
+}
+
+.menu-mobile li:nth-child(4) a {
+    padding-left: 40px;
+    background: #808080 url('../_img/close-button.png') left 10px center / 23px no-repeat;
+}
+
+
 /* Container float */
 
 div.container-float {
@@ -138,7 +221,7 @@ div#music {
     top: 50%;
     transform: translate(0, -50%);
     background: #fff;
-    z-index: 99;
+    z-index: 90;
 }
 
 #music-img {
@@ -188,8 +271,8 @@ div#content-form {
 div#container-form {
     width: 100%;
     max-width: 500px;
-    margin: 30px auto;
-    padding: 30px;
+    margin: 60px auto;
+    padding: 60px;
     background: rgba(15, 44, 37, .8);
 }
 
@@ -556,7 +639,7 @@ img.img-previus {
 
 span.font-m {
     display: block;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
     color: #fff;
     padding-left: 30px;
@@ -569,7 +652,7 @@ span.font-m-app {
 }
 
 .remove-name {
-    color: #eb4d4b;
+    color: #ffbe76;
     font-size: 13pt;
     padding: 5px 25px;
     display: block;
@@ -590,16 +673,21 @@ span.font-m-app {
     color: #666;
     font-size: 11pt;
     padding: 10px 15px;
+    margin-bottom: 20px;
     border-radius: 3px;
     display: block;
 }
 
 #form-remove {
-    width: 90%;
-    padding: 5%;
+    width: 100%;
+    margin: 20px 0;
+    padding: 30px;
     background: rgba(255, 255, 255, .2);
-    margin: 5% 0;
     border-radius: 3px;
+}
+
+.img-border {
+    border: 1.5px solid #ffbe76;
 }
 
 .submit {
@@ -614,19 +702,13 @@ span.font-m-app {
 }
 
 .remove-submit {
+    margin: 0;
     background: #eb4d4b url('../_img/lixeira.png') left 10px center / 22px no-repeat;
 }
 
 .approved-submit {
+    margin: 0;
     background: #686de0 url('../_img/ui.png') left 10px center / 22px no-repeat;
-}
-
-.remove-submit:hover {
-    box-shadow: 1px 1px 1px #666;
-}
-
-.approved-submit:hover {
-    box-shadow: 1px 1px 1px #666;
 }
 
 
@@ -663,8 +745,8 @@ span.font-m-app {
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     background-color: #eee;
     border-radius: 3px;
     box-shadow: 1px 1px 2px #000;
@@ -705,8 +787,8 @@ span.font-m-app {
 
 .container .checkmark:after {
     left: 9px;
-    top: 5px;
-    width: 5px;
+    top: 3px;
+    width: 3px;
     height: 10px;
     border: solid white;
     border-width: 0 3px 3px 0;
@@ -760,14 +842,21 @@ div.icons {
     .meng-cell {
         display: block !important;
     }
+    .menu {
+        display: none;
+    }
+    .btn-menu {
+        display: block;
+    }
+    h1 {
+        font-size: 1.3em;
+    }
+    h2 {
+        font-size: 1.2em;
+    }
 }
 
 @media screen and (max-width: 600px) {
-    #form-remove {
-        width: 80%;
-        padding: 10%;
-        margin: 20px 0;
-    }
     .score-inf:nth-child(1n+2) {
         padding-top: 0;
     }

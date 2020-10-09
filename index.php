@@ -8,7 +8,7 @@
     <!-- tags for share social midia -->
     <meta property="og:url" content="http://gamersworldrecordsandtournament.epizy.com">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Site dinamico criado usando PHP puro e MySQL">
+    <meta property="og:title" content="Site dinamico criado usando PHP e MySQL">
     <meta property="og:description" content="Site criado apenas como portifólio.">
     <meta property="og:site_name" content="Guitar Wars">
     <meta property="og:image" itemprop="image" content="http://gamersworldrecordsandtournament.epizy.com/_img/john5-share.jpeg">
@@ -28,34 +28,50 @@
 <body>
     <header class="bac-menu">
         <div class="container">
+            <!-- Logo -->
             <img src="_img/logo.png" alt="Logo Guitar Wars" class="logo-gw">
+            <!-- Large acreen menu -->
+            <a href="#menu" class="btn-menu"></a>
             <nav class="menu">
                 <ul class="ul-menu">
                     <li><a href="index.php">Recordes</a></li>
                     <li><a href="add-high-score.php">Adicionar</a></li>
                     <li><a href="admin.php">Admin</a></li>
                 </ul>
+            </nav>            
+        </div>
+        <div class="container-menu-reponsive">
+            <img src="_img/logo.png" alt="Logo Guitar Wars" class="logo-gw-mobile">
+            <!-- Menu mobile -->
+            <nav class="menu-mobile">
+                <ul class="ul-menu-mobile">
+                    <li><a href="index.php">Recordes</a></li>
+                    <li><a href="add-high-score.php">Adicionar</a></li>
+                    <li><a href="admin.php">Admin</a></li>
+                    <li><a href="#" class="btn-close">Fechar</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Some small box to listen to music -->
     <audio id="demo" controls style="display: none;">
         <source src="_music/buckethead_jordan.mp3" type="audio/mpeg">
         <source src="_music/buckethead_jordan.mp3" type="audio/ogg">
         Seu navegador não suporta áudio tag.
     </audio>
-
     <div id="music">
         <img src="_img/music-player.png" alt="" id="music-img">
         <button id="play" onclick="document.querySelector('#demo').play()"></button>
         <button id="pause" onclick="document.querySelector('#demo').pause()"></button>
     </div>
 
+    <!-- Here where it will show everything from the database -->
     <div class="container-float">
         <div class="container-bac">
-        <h1>Top list de recordes Guitar Hero. <br> Adicione o seu também e se torne um puta guitar hero!</h1>
+        <h1>Top list de recordes Guitar Hero. Adicione o seu também e se torne um puta guitar hero!</h1>
         <?php
-        // share the scripts
+        // Share the scripts
         require_once 'connectvars.php';
         require_once 'appvars.php';
 
@@ -64,7 +80,7 @@
         $query = "SELECT Year(date) as ano, MONTH(date) as mes, DAY(date) as dia, guitarwars.* FROM guitarwars WHERE approved = 1 ORDER BY score DESC, date ASC";
         $data = mysqli_query($dbc, $query);
 
-        // array names months
+        // Array names months
         $mes = array(1 => "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
 
         $i = 0;
@@ -72,7 +88,7 @@
         while ($row = mysqli_fetch_array($data)) {
             $i++;
             if ($i == 1) {
-                echo '<h2 class="top-name">Top #1 ' . $row['name'] . ', <br> Melhor pontuação de todas #'. $row['score'] .'</h2><br>';
+                echo '<h2>Top #1 ' . $row['name'] . ', <br> Melhor pontuação de todas #'. $row['score'] .'</h2><br>';
             }
             echo '<div class="row-bg">';
                 echo '<div class="score-inf">';
@@ -85,9 +101,9 @@
                 echo '<div class="score-inf">';
                 if (is_file(GW_UPLOADPATH . $row['screenshot']) && filesize(GW_UPLOADPATH . $row['screenshot']) > 0) {
                     // check if they are null
-                    echo '<img src="' . GW_UPLOADPATH . $row['screenshot'] . '" class="screenshot">';
+                    echo '<img src="' . GW_UPLOADPATH . $row['screenshot'] . '" class="img-border">';
                 } else {
-                    echo '<img src="" alt="Unverified score :/" class="screenshot">';
+                    echo '<img src="" alt="Unverified score :/">';
                 }
                 echo '</div>';
             echo '</div>';
@@ -114,5 +130,7 @@
             <a href="https://github.com/FabricioPatrocinio/guitar-wars" target="_blank" class="fa fa-github"></a>
         </div>
     </footer>
+
+    <script src="js/menu.js"></script>
 </body>
 </html>
